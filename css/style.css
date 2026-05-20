@@ -22,7 +22,6 @@
   font-display: swap;
 }
 
-
 html {
   margin: 0;
   padding: 0;
@@ -100,8 +99,6 @@ body.envelope-open {
   will-change: transform;
 }
 
-/* LIGHTWEIGHT HEARTBEAT */
-
 @keyframes heartBeat {
   0% {
     transform: translate(-50%, -50%) scale(1);
@@ -174,31 +171,21 @@ body.envelope-open {
 
 .silver-left {
   position: absolute;
-
   top: 60px;
   left: 0;
-
   width: 120px;
-
   opacity: 0.7;
-
   z-index: 2;
-
   pointer-events: none;
 }
 
 .silver-right {
   position: absolute;
-
   bottom: 60px;
   right: 0;
-
   width: 120px;
-
   opacity: 0.7;
-
   z-index: 2;
-
   pointer-events: none;
 }
 
@@ -214,11 +201,8 @@ body.envelope-open {
 .silver-left,
 .silver-right {
   animation: softFloat 4.5s ease-in-out infinite;
-
   will-change: transform;
 }
-
-/* SMALL DELAYS */
 
 .silver-left {
   animation-delay: 1s;
@@ -249,7 +233,6 @@ body.envelope-open {
 .gold-letter {
   color: #b58b3d;
   display: inline-block;
-
   animation: goldGlow 2.5s ease-in-out infinite alternate;
 }
 @keyframes goldGlow {
@@ -271,9 +254,7 @@ body.envelope-open {
   line-height: 1;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
   opacity: 0;
-
   filter: blur(6px);
-
   will-change: transform, opacity, filter;
 }
 
@@ -405,23 +386,16 @@ body.envelope-open {
   color: #000;
 }
 
-/* FAST IMAGE RENDER */
-
 img {
   display: block;
   backface-visibility: hidden;
   image-rendering: auto;
 }
 
-/* BETTER TOUCH RESPONSE */
-
 .envelope-bg,
 .venue-qr {
   -webkit-tap-highlight-color: transparent;
 }
-
-
-/* BACKGROUND PATTERN */
 
 .story-section::before,
 .couple-section::before,
@@ -429,20 +403,14 @@ img {
 .countdown-section::before,
 .venue-section::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
   background-image: url("../assets/layer-11.png");
   background-size: cover;
   background-position: center;
-
   opacity: 0.28;
-
   z-index: 1;
 }
-
-/* TOP RIGHT GOLD */
 
 .story-section::after,
 .couple-section::after,
@@ -463,10 +431,6 @@ img {
   z-index: 2;
 }
 
-/* =========================================
-   CLEAN SECTION LAYOUT
-========================================= */
-
 .story-section,
 .couple-section,
 .date-section,
@@ -484,8 +448,6 @@ img {
   isolation: isolate;
 }
 
-/* SECTION CONTENTS */
-
 .story-text,
 .couple-content,
 .date-content,
@@ -500,15 +462,13 @@ img {
 .story-section {
    position: relative;
   min-height: 100vh;
-  display: flex;              /* 🔥 change from grid */
+  display: flex;             
   flex-direction: column;
-  justify-content: center;    /* vertical center */
-  align-items: center;        /* horizontal center */
-
+  justify-content: center;    
+  align-items: center;       
   overflow: hidden;
 }
 
-/* STORY TEXT */
 .story-text {
    width: 90%;
   text-align: center;
@@ -519,13 +479,9 @@ img {
   filter: blur(8px);
 }
 
-/* ACTIVE ANIMATION */
-
 .story-text.show-story {
   animation: storyBlurReveal 1s ease forwards;
 }
-
-/* SIMPLE BLUR EFFECT */
 
 @keyframes storyBlurReveal {
   from {
@@ -547,8 +503,6 @@ img {
   animation-delay: 0.4s;
 }
 
-/* LEFT TO CENTER */
-
 @keyframes groomReveal {
    from {
     opacity: 0;
@@ -562,8 +516,6 @@ img {
     filter: blur(0);
   }
 }
-
-/* RIGHT TO CENTER */
 
 @keyframes brideReveal {
   from {
@@ -582,23 +534,16 @@ img {
 .main-date,
 .event-time {
   opacity: 0;
-
   transform: scale(1.08);
-
   filter: blur(6px);
-
   will-change: transform, opacity, filter;
 }
-
-/* ACTIVE DATE EFFECT */
 
 .date-content.show-date .save-date-text,
 .date-content.show-date .main-date,
 .date-content.show-date .event-time {
   animation: dateZoomReveal 0.9s ease forwards;
 }
-
-/* SMALL DELAYS */
 
 .date-content.show-date .main-date {
   animation-delay: 0.15s;
@@ -607,8 +552,6 @@ img {
 .date-content.show-date .event-time {
   animation-delay: 0.3s;
 }
-
-/* LIGHTWEIGHT ZOOM */
 
 @keyframes dateZoomReveal {
   from {
@@ -627,23 +570,16 @@ img {
 .time-box,
 .colon {
   opacity: 0;
-
   transform: translateY(12px) scale(0.96);
-
   filter: blur(4px);
-
   will-change: transform, opacity, filter;
 }
-
-/* ACTIVE COUNTDOWN EFFECT */
 
 .countdown-content.show-countdown .countdown-title,
 .countdown-content.show-countdown .time-box,
 .countdown-content.show-countdown .colon {
   animation: countdownReveal 0.8s ease forwards;
 }
-
-/* SMALL STAGGER DELAYS */
 
 .countdown-content.show-countdown .time-box:nth-child(1) {
   animation-delay: 0.1s;
@@ -660,8 +596,6 @@ img {
 .countdown-content.show-countdown .time-box:nth-child(7) {
   animation-delay: 0.4s;
 }
-
-/* LIGHTWEIGHT REVEAL */
 
 @keyframes countdownReveal {
   from {
@@ -686,16 +620,12 @@ img {
   will-change: transform, opacity, filter;
 }
 
-/* ACTIVE VENUE EFFECT */
-
 .venue-content.show-venue .venue-title,
 .venue-content.show-venue .venue-name,
 .venue-content.show-venue .venue-qr,
 .venue-content.show-venue .scan-text {
   animation: venueReveal 0.8s ease forwards;
 }
-
-/* SMALL DELAYS */
 
 .venue-content.show-venue .venue-name {
   animation-delay: 0.15s;
@@ -708,8 +638,6 @@ img {
 .venue-content.show-venue .scan-text {
   animation-delay: 0.45s;
 }
-
-/* LIGHTWEIGHT REVEAL */
 
 @keyframes venueReveal {
   from {
@@ -727,26 +655,16 @@ img {
 
 .groom-name span,
 .bride-name span {
-
   opacity: 0;
-
   display: inline-block;
-
   transform: translateY(10px);
-
   filter: blur(6px);
-
 }
-
-/* ACTIVE LETTER ANIMATION */
 
 .groom-name.show-groom span,
 .bride-name.show-bride span {
-
   animation: letterReveal 0.6s ease forwards;
 }
-
-/* KEYFRAME */
 
 @keyframes letterReveal {
 
@@ -763,7 +681,7 @@ img {
   }
 
 }
-/* WRAPPER */
+
 .jr-wrapper {
   position: relative;
   display: flex;
@@ -771,10 +689,8 @@ img {
   align-items: center;
   height: clamp(160px, 38vw, 220px);
   opacity: 0;
-
-  
 }
-/* SHOW WRAPPER WITH FADE */
+
 .jr-wrapper.show-logo {
   animation: wrapperFade 0.6s ease forwards;
 }
@@ -787,7 +703,7 @@ img {
     opacity: 1;
   }
 }
-/* R STATIC */
+
 .logo-r,
 .logo-j {
     position: absolute;
@@ -796,22 +712,20 @@ img {
        transform: scale(1.08);
   filter: blur(6px);
 }
-/* R FIRST */
+
 .logo-r.show-r {
   animation: logoReveal 1.2s ease forwards;
 }
 
-/* J SECOND */
 .logo-j.show-j {
   animation: logoReveal 1.2s ease forwards;
 }
 
-/* SAME AS SAVE DATE */
 @keyframes logoReveal {
   from {
     opacity: 0;
     transform: scale(1.08);
-    filter: blur(8px);   /* 👈 slightly more blur for visible effect */
+    filter: blur(8px);   
   }
 
   to {
@@ -820,11 +734,33 @@ img {
     filter: blur(0);
   }
 }
-@media (max-width: 768px) {
-  /* ======================================
-     SECTION HEIGHT
-  ====================================== */
 
+.video-section {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  z-index: 9998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease;
+}
+
+.video-section.show-video {
+  opacity: 1;
+  visibility: visible;
+}
+
+#introVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+@media (max-width: 768px) {
   .story-section,
   .couple-section,
   .date-section,
@@ -841,43 +777,29 @@ img {
   .venue-section::after {
     width: 210px;
     height: 210px;
-
     top: -8px;
     right: -8px;
-
     opacity: 1;
   }
-
-  /* BOTTOM GOLD */
 
   .gold-bottom-left {
     width: 170px;
-
     bottom: -5px;
     left: -5px;
-
     opacity: 1;
   }
 
-  /* LEFT SILVER */
-
   .silver-left {
     width: 105px;
-
     top: 55px;
     left: -10px;
-
     opacity: 0.8;
   }
 
-  /* RIGHT SILVER */
-
   .silver-right {
     width: 105px;
-
     bottom: 55px;
     right: -10px;
-
     opacity: 0.8;
   }
   
@@ -902,20 +824,13 @@ img {
     font-size: clamp(28px, 8vw, 48px);
   }
 
-  /* ======================================
-     STORY TEXT
-  ====================================== */
-
+  
   .story-text {
     width: 90%;
     font-size: clamp(14px, 4vw, 22px);
     letter-spacing: clamp(1px, 0.5vw, 4px);
     line-height: 1.5;
   }
-
-  /* ======================================
-     NAMES
-  ====================================== */
 
   .groom-name,
   .bride-name {
@@ -927,10 +842,6 @@ img {
     font-size: clamp(20px, 5vw, 34px);
     margin: 8px 0;
   }
-
-  /* ======================================
-     DATE SECTION
-  ====================================== */
 
   .save-date-text {
     font-size: clamp(32px, 9vw, 60px);
@@ -946,10 +857,6 @@ img {
   .event-time {
     font-size: clamp(20px, 5vw, 34px);
   }
-
-  /* ======================================
-     COUNTDOWN
-  ====================================== */
 
   .countdown-title {
     font-size: clamp(16px, 4vw, 30px);
@@ -977,10 +884,6 @@ img {
     font-size: clamp(28px, 8vw, 60px);
   }
 
-  /* ======================================
-     VENUE
-  ====================================== */
-
   .venue-title {
     font-size: clamp(15px, 4vw, 28px);
   }
@@ -1002,10 +905,6 @@ img {
     font-size: clamp(14px, 4vw, 26px);
     margin-top: 12px;
   }
-
-  /* ======================================
-     CONTENT WIDTH
-  ====================================== */
 
   .couple-content,
   .date-content,
