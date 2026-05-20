@@ -12,23 +12,29 @@ function openInvitation() {
   setTimeout(() => {
     envelope.classList.add("hide-envelope");
     videoSection.classList.add("show-video");
-    video.muted = true; 
+    video.muted = true;
     video.play();
     video.onended = () => {
-      videoSection.style.display = "none";
       document.body.classList.remove("envelope-open");
       const wrapper = document.querySelector(".jr-wrapper");
       const logoR = document.querySelector(".logo-r");
       const logoJ = document.querySelector(".logo-j");
+
       wrapper.classList.add("show-logo");
+
       setTimeout(() => {
         logoR.classList.add("show-r");
       }, 300);
+
       setTimeout(() => {
         logoJ.classList.add("show-j");
       }, 1500);
-      document.querySelector(".story-text")
-        .classList.add("show-story");
+
+      document.querySelector(".story-text").classList.add("show-story");
+      videoSection.classList.add("hide-video");
+      setTimeout(() => {
+        videoSection.style.display = "none";
+      }, 500);
     };
   }, 700);
 }

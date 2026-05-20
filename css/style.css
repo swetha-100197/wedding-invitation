@@ -747,12 +747,16 @@ img {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.5s ease;
 }
 
 .video-section.show-video {
   opacity: 1;
   visibility: visible;
+}
+
+.video-section.hide-video {
+  opacity: 0;
 }
 
 #introVideo {
