@@ -19,13 +19,8 @@ function openInvitation() {
   const bufferTime = 0.3; // 🔥 trigger BEFORE video ends
 
   if (video.currentTime >= video.duration - bufferTime) {
-
-    /* RUN ONLY ONCE */
     if (!video.dataset.triggered) {
-
       video.dataset.triggered = "true";
-
-      /* 🔥 START CONTENT IMMEDIATELY */
       document.body.classList.remove("envelope-open");
 
       const wrapper = document.querySelector(".jr-wrapper");
@@ -40,8 +35,7 @@ function openInvitation() {
 
       setTimeout(() => {
         logoJ.classList.add("show-j");
-      }, 1500);
-
+      }, 2300);
       document.querySelector(".story-text")
         .classList.add("show-story");
       videoSection.classList.add("hide-video");
@@ -52,7 +46,7 @@ function openInvitation() {
     }
   }
 });
-  }, 700);
+  }, 100);
 }
 const weddingDate = new Date("2026-06-17T18:00:00").getTime();
 function updateCountdown() {
