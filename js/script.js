@@ -14,8 +14,20 @@ function openInvitation() {
     videoSection.classList.add("show-video");
     video.muted = true;
     video.play();
-    video.onended = () => {
+   video.addEventListener("timeupdate", () => {
+
+  const bufferTime = 0.3; // 🔥 trigger BEFORE video ends
+
+  if (video.currentTime >= video.duration - bufferTime) {
+
+    /* RUN ONLY ONCE */
+    if (!video.dataset.triggered) {
+
+      video.dataset.triggered = "true";
+
+      /* 🔥 START CONTENT IMMEDIATELY */
       document.body.classList.remove("envelope-open");
+
       const wrapper = document.querySelector(".jr-wrapper");
       const logoR = document.querySelector(".logo-r");
       const logoJ = document.querySelector(".logo-j");
@@ -30,12 +42,16 @@ function openInvitation() {
         logoJ.classList.add("show-j");
       }, 1500);
 
-      document.querySelector(".story-text").classList.add("show-story");
+      document.querySelector(".story-text")
+        .classList.add("show-story");
       videoSection.classList.add("hide-video");
+
       setTimeout(() => {
         videoSection.style.display = "none";
-      }, 500);
-    };
+      }, 100);
+    }
+  }
+});
   }, 700);
 }
 const weddingDate = new Date("2026-06-17T18:00:00").getTime();
