@@ -14,38 +14,32 @@ function openInvitation() {
     videoSection.classList.add("show-video");
     video.muted = true;
     video.play();
-   video.addEventListener("timeupdate", () => {
+    video.addEventListener("timeupdate", () => {
+      const bufferTime = 0.3; 
+      if (video.currentTime >= video.duration - bufferTime) {
+        if (!video.dataset.triggered) {
+          video.dataset.triggered = "true";
+          document.body.classList.remove("envelope-open");
 
-  const bufferTime = 0.3; // 🔥 trigger BEFORE video ends
+          const wrapper = document.querySelector(".jr-wrapper");
+          const logoR = document.querySelector(".logo-r");
+          const logoJ = document.querySelector(".logo-j");
 
-  if (video.currentTime >= video.duration - bufferTime) {
-    if (!video.dataset.triggered) {
-      video.dataset.triggered = "true";
-      document.body.classList.remove("envelope-open");
-
-      const wrapper = document.querySelector(".jr-wrapper");
-      const logoR = document.querySelector(".logo-r");
-      const logoJ = document.querySelector(".logo-j");
-
-      wrapper.classList.add("show-logo");
-
-      setTimeout(() => {
-        logoR.classList.add("show-r");
-      }, 300);
-
-      setTimeout(() => {
-        logoJ.classList.add("show-j");
-      }, 2300);
-      document.querySelector(".story-text")
-        .classList.add("show-story");
-      videoSection.classList.add("hide-video");
-
-      setTimeout(() => {
-        videoSection.style.display = "none";
-      }, 100);
-    }
-  }
-});
+          wrapper.classList.add("show-logo");
+          setTimeout(() => {
+             logoJ.classList.add("show-j");
+          }, 300);
+          setTimeout(() => {
+            logoR.classList.add("show-r");
+          }, 2500);
+          document.querySelector(".story-text").classList.add("show-story");
+          videoSection.classList.add("hide-video");
+          setTimeout(() => {
+            videoSection.style.display = "none";
+          }, 100);
+        }
+      }
+    });
   }, 100);
 }
 const weddingDate = new Date("2026-06-17T18:00:00").getTime();
